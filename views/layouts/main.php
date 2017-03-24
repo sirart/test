@@ -7,9 +7,19 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+/*
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+*/
+
+use app\assets\BasicAsset;
+BasicAsset::register($this);
+
+/*
+use app\assets\MaterialAsset;
+MaterialAsset::register($this);
+*/
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,16 +37,20 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'ตัวชี้วัด รพ.อุดรธานี',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-default navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Report', 'items' => [
+              ['label' => 'My Firest Page',
+                  'url' => ['/first/index']],  
+            ]],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
@@ -66,7 +80,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Panuwat Ch <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

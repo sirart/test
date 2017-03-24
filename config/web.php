@@ -28,6 +28,7 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
